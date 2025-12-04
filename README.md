@@ -1,6 +1,6 @@
 # 🎬 Netflix Data Visualization Portfolio
 
-An interactive data visualization portfolio showcasing Netflix streaming analytics, content trends, and global viewership insights. Built for Netflix job application to demonstrate expertise in data storytelling, front-end development, and visualization design.
+An interactive data visualization portfolio showcasing Netflix streaming analytics, content trends, and global viewership insights. Built for Netflix job application to demonstrate expertise in data storytelling, front-end development, and visualization design. https://vizual100.netlify.app
 
 ![Netflix Data Viz](https://img.shields.io/badge/Netflix-Data%20Visualization-E50914?style=for-the-badge&logo=netflix)
 ![D3.js](https://img.shields.io/badge/D3.js-v7-F9A03C?style=for-the-badge&logo=d3.js)
@@ -49,7 +49,7 @@ An interactive data visualization portfolio showcasing Netflix streaming analyti
 Simply open `index.html` in a modern web browser (Chrome, Firefox, Safari, or Edge).
 
 ```bash
-cd netflix-data-viz
+cd netflix-data-visualization
 open index.html  # macOS
 # or
 start index.html  # Windows
@@ -146,16 +146,12 @@ The visualizations showcase:
 
 ## 👨‍💻 About
 
-Created as part of a Netflix job application to showcase:
+Created as by Sucheta Nandy along with Gemini showcasing:
 - Advanced data visualization skills
 - Front-end development expertise (JavaScript, D3.js)
 - Design sensibility and attention to detail
 - Ability to tell compelling stories with data
 
-## 📧 Contact
-
-For questions or feedback about this portfolio project, please reach out through the Netflix application portal.
-
 ---
 
-**Built with ❤️ and ☕ for Netflix**
+**Built with ❤️ **
