@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Netflix Data Visualization Portfolio - Showcasing streaming trends, content analytics, and global viewership insights">
+    <title>Netflix Data Insights | Interactive Visualization Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="main-nav" class="nav-container">
+        <div class="nav-content">
+            <div class="nav-logo">NETFLIX<span class="data-text">DATA</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#timeline" class="nav-link">Trends</a></li>
+                <li><a href="#genres" class="nav-link">Genres</a></li>
+                <li><a href="#global" class="nav-link">Global</a></li>
+                <li><a href="#dashboard" class="nav-link">Performance</a></li>
+                <li><a href="#engagement" class="nav-link">Engagement</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">STREAMING</span>
+                <span class="title-line">DATA</span>
+                <span class="title-line highlight">INSIGHTS</span>
+            </h1>
+            <p class="hero-subtitle">An Interactive Journey Through Netflix's Global Entertainment Landscape</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="247">0</div>
+                    <div class="stat-label">Million Subscribers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-label">Titles Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="190">0</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+            <a href="#timeline" class="cta-button">Explore Insights</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Streaming Timeline Section -->
+    <section id="timeline" class="viz-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Streaming Evolution</h2>
+                <p class="section-description">Track the explosive growth of Netflix content releases and viewership trends from 2020 to 2024</p>
+            </div>
+            <div class="viz-card">
+                <div id="timeline-viz" class="visualization"></div>
+                <div class="viz-controls">
+                    <button class="control-btn active" data-metric="releases">Content Releases</button>
+                    <button class="control-btn" data-metric="viewership">Total Viewership</button>
+                    <button class="control-btn" data-metric="hours">Watch Hours</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genre Distribution Section -->
+    <section id="genres" class="viz-section dark-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Content Universe</h2>
+                <p class="section-description">Explore the diverse landscape of genres and categories across Netflix's global library</p>
+            </div>
+            <div class="viz-card">
+                <div id="genre-viz" class="visualization"></div>
+                <div class="genre-legend" id="genre-legend"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Viewership Section -->
+    <section id="global" class="viz-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Global Reach</h2>
+                <p class="section-description">Discover viewing patterns and engagement levels across different regions worldwide</p>
+            </div>
+            <div class="viz-card">
+                <div id="map-viz" class="visualization"></div>
+                <div class="map-tooltip" id="map-tooltip"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Dashboard Section -->
+    <section id="dashboard" class="viz-section dark-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Top Performers</h2>
+                <p class="section-description">Compare the most successful titles by viewership, ratings, and audience engagement</p>
+            </div>
+            <div class="dashboard-grid">
+                <div class="viz-card">
+                    <h3 class="card-title">Top 10 Most Watched</h3>
+                    <div id="top-content-viz" class="visualization"></div>
+                </div>
+                <div class="viz-card">
+                    <h3 class="card-title">Rating vs Viewership</h3>
+                    <div id="scatter-viz" class="visualization"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Metrics Section -->
+    <section id="engagement" class="viz-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Viewer Engagement</h2>
+                <p class="section-description">Analyze how audiences interact with content through completion rates and watch patterns</p>
+            </div>
+            <div class="engagement-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">📊</div>
+                    <div class="metric-value" data-target="73">0%</div>
+                    <div class="metric-label">Average Completion Rate</div>
+                    <div class="metric-trend positive">+5.2% from last quarter</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⏱️</div>
+                    <div class="metric-value" data-target="2.4">0</div>
+                    <div class="metric-label">Avg Hours Per Day</div>
+                    <div class="metric-trend positive">+0.3 hours</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🔄</div>
+                    <div class="metric-value" data-target="89">0%</div>
+                    <div class="metric-label">Binge-Watch Rate</div>
+                    <div class="metric-trend positive">+12% YoY</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⭐</div>
+                    <div class="metric-value" data-target="4.2">0</div>
+                    <div class="metric-label">Average Rating</div>
+                    <div class="metric-trend neutral">Stable</div>
+                </div>
+            </div>
+            <div class="viz-card">
+                <h3 class="card-title">Weekly Engagement Patterns</h3>
+                <div id="engagement-viz" class="visualization"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About This Project</h3>
+                <p>An interactive data visualization portfolio showcasing streaming analytics, built with D3.js and modern web technologies.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Technologies</h3>
+                <ul>
+                    <li>D3.js v7</li>
+                    <li>Vanilla JavaScript</li>
+                    <li>CSS3 Animations</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Data Sources</h3>
+                <p>Visualizations based on simulated Netflix streaming data for demonstration purposes.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Netflix Data Visualization Portfolio | Created for Netflix Job Application</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="src/data/streamingData.js"></script>
+    <script src="src/utils/animations.js"></script>
+    <script src="src/visualizations/timeline.js"></script>
+    <script src="src/visualizations/genres.js"></script>
+    <script src="src/visualizations/globalMap.js"></script>
+    <script src="src/visualizations/dashboard.js"></script>
+    <script src="src/visualizations/engagement.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
